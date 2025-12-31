@@ -1,0 +1,15 @@
+{
+	"version": 8,
+	"configurePresets": [
+		{
+			"name": "default",
+			"displayName": "Default",
+			"description": "Default presets",
+			"binaryDir": "${sourceDir}/build",
+			"generator": "Ninja",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug"
+			}
+		} 
+	]
+}
