@@ -1,10 +1,23 @@
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
-set(CMAKE_C_COMPILER arm-none-eabi-gcc)
-set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
+set(TOOLCHAIN_PREFIX arm-none-eabi)
+
+set(CMAKE_ASM_COMPILER ${TOOLCHAIN_PREFIX}-gcc)
+set(CMAKE_C_COMPILER ${TOOLCHAIN_PREFIX}-gcc)
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}-g++)
+
+set(CMAKE_OBJCOPY ${TOOLCHAIN_PREFIX}-objcopy)
+set(CMAKE_SIZE ${TOOLCHAIN_PREFIX}-size)
 
 # Optimization and Debug flags for Cortex-M4
-set(FLAGS "-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections")
-set(CMAKE_C_FLAGS "${FLAGS}" CACHE INTERNAL "")
-set(CMAKE_EXE_LINKER_FLAGS "-Wl,--gc-sections -T ${CMAKE_SOURCE_DIR}/STM32F407VGTx_FLASH.ld" CACHE INTERNAL "")
+set(COMPILER_FLAGS 
+	"-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections"
+)
+set(CMAKE_ASM_FLAGS "${COMPILER_FLAGS}" CACHE INTERNAL "")
+set(CMAKE_C_FLAGS "${COMPILER_FLAGS}" CACHE INTERNAL "")
+set(CMAKE_CXX_FLAGS "${COMPILER_FLAGS}" CACHE INTERNAL "")
+
+set(CMAKE_EXE_LINKER_FLAGS 
+	"-Wl,--gc-sections -T ${CMAKE_SOURCE_DIR}/STM32F407VGTX_FLASH.ld" CACHE INTERNAL ""
+)

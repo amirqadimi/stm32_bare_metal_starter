@@ -5,8 +5,9 @@
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "openocd",
-            "executable": "${workspaceRoot}/build/main.elf",
+            "executable": "${workspaceRoot}/build/stm32-firmware",
             "device": "STM32F407VG",
+            "gdbPath": "gdb-multiarch",
             "configFiles": [
                 "interface/stlink.cfg",
                 "target/stm32f4x.cfg"
