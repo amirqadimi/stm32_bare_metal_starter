@@ -22,17 +22,11 @@ target_sources(${PROJECT_NAME}
 		src/main.c
 		src/system_stm32f4xx.c
 		startup/startup_stm32f407vgtx.s
-		
-		drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
-		drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-		drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-		drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
 )
 
 set(INCLUDES_LIB_CMSIS
     drivers/CMSIS/Device/ST/STM32F4xx/Include
     drivers/CMSIS/Include
-    drivers/STM32F4xx_HAL_Driver/Inc
 )
 
 add_library(lib INTERFACE)
