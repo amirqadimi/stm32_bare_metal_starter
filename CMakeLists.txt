@@ -1,19 +1,15 @@
 cmake_minimum_required(VERSION 3.28.3)
 
-project(stm32-firmware)
-enable_language(C CXX ASM)
+set(PROJECT_NAME "stm32-firmware")
 
-# Set the following variable to `ON` to print all cmake variables
-set(CMAKE_DUMP_VARIABLES            OFF)
+project(${PROJECT_NAME})
+enable_language(C ASM)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS   ON)
 
 set(CMAKE_C_STANDARD                11)
 set(CMAKE_C_STANDARD_REQUIRED       ON)
 set(CMAKE_C_EXTENSIONS              ON)
-set(CMAKE_CXX_STANDARD              14)
-set(CMAKE_CXX_STANDARD_REQUIRED     ON)
-set(CMAKE_CXX_EXTENSIONS            ON)
 
 add_executable(${PROJECT_NAME})
 
@@ -43,8 +39,6 @@ target_compile_definitions(lib INTERFACE
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     lib
 )
-
-option(CMAKE_BUILD_TYPE "Debug mode" On)
 
 add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${CMAKE_PROJECT_NAME}>
