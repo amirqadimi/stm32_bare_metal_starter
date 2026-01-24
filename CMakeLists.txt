@@ -17,7 +17,7 @@ target_sources(${PROJECT_NAME}
 	PRIVATE
 		src/main.c
 		src/system_stm32f4xx.c
-		startup/startup_stm32f407vgtx.s
+		startup/startup_stm32f407xx.s
 )
 
 set(INCLUDES_LIB_CMSIS
