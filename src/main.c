@@ -12,15 +12,12 @@ static void delay(volatile uint32_t count)
 
 int main(void)
 {
-    // Initialize the LED
     led_init();
 
     while (1) {
-        // Turn LED on
         led_on();
         delay(LED_DELAY_COUNT);
 
-        // Turn LED off
         led_off();
         delay(LED_DELAY_COUNT);
     }
