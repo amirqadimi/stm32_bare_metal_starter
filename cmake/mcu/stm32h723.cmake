@@ -9,7 +9,7 @@ set(MCU_LIB_CMSIS
 	"${CMAKE_SOURCE_DIR}/drivers/CMSIS/Device/ST/STM32H7xx/Include"
 )
 
-set(MCU_COMPILE_DEFINITIONS "STM32H723xx")
+set(MCU_COMPILE_DEFINITIONS STM32H723xx)
 
 set(COMPILER_FLAGS 
 	"-mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections"

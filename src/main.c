@@ -1,4 +1,10 @@
+#if defined(STM32F407xx)
 #include "stm32f4xx.h"
+#elif defined(STM32H723xx)
+#include "stm32h7xx.h"
+#endif 
+
+#include <inttypes.h>
 
 #define LED_DELAY_COUNT 1000000U
 

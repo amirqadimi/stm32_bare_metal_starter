@@ -22,6 +22,8 @@ target_sources(${PROJECT_NAME}
 include(${CMAKE_SOURCE_DIR}/cmake/mcu-type.cmake)
 include(${MCU_CONFIG_FILE})
 
+message(STATUS "MCU type is \"${MCU_TYPE}\". Compile definition is \"${MCU_COMPILE_DEFINITIONS}\"")
+
 set(INCLUDES_LIB_CMSIS
 	${MCU_LIB_CMSIS}
 	drivers/CMSIS/Include
@@ -34,7 +36,8 @@ target_include_directories(lib INTERFACE
 	src
 )
 
-target_compile_definitions(lib INTERFACE
+target_compile_definitions(lib 
+	INTERFACE
 	${MCU_COMPILE_DEFINITIONS}
 )
 
