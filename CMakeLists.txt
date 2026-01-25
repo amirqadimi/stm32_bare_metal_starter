@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.28.3)
 set(PROJECT_NAME "stm32-firmware")
 
 project(${PROJECT_NAME})
+
 enable_language(C ASM)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS   ON)
@@ -16,30 +17,31 @@ add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME}
 	PRIVATE
 		src/main.c
-		src/system_stm32f4xx.c
-		startup/startup_stm32f407xx.s
 )
 
+include(${CMAKE_SOURCE_DIR}/cmake/mcu-type.cmake)
+include(${MCU_CONFIG_FILE})
+
 set(INCLUDES_LIB_CMSIS
-    drivers/CMSIS/Device/ST/STM32F4xx/Include
-    drivers/CMSIS/Include
+	${MCU_LIB_CMSIS}
+	drivers/CMSIS/Include
 )
 
 add_library(lib INTERFACE)
 
 target_include_directories(lib INTERFACE
-    ${INCLUDES_LIB_CMSIS}
-    src
+	${INCLUDES_LIB_CMSIS}
+	src
 )
 
 target_compile_definitions(lib INTERFACE
-    STM32F407xx
+	${MCU_COMPILE_DEFINITIONS}
 )
 
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
-    lib
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lib
 )
 
-add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${CMAKE_PROJECT_NAME}>
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+	COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${PROJECT_NAME}>
 )

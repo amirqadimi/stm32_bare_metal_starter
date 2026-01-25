@@ -7,7 +7,7 @@
 			"hidden": true,
 			"binaryDir": "${sourceDir}/build",
 			"generator": "Ninja",
-			"toolchainFile": "${sourceDir}/arm-none-eabi.cmake",
+			"toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake",
 			"cacheVariables": {
 			}
 		},
