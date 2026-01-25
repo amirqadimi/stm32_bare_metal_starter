@@ -3,6 +3,7 @@ set(MCU_DIR "${CMAKE_SOURCE_DIR}/mcu/stm32f4xx")
 target_sources(${PROJECT_NAME} PRIVATE
 	"${MCU_DIR}/startup_stm32f407xx.s"	
 	"${MCU_DIR}/system_stm32f4xx.c"
+	"${CMAKE_SOURCE_DIR}/src/led_f407.c"
 )
 
 set(MCU_LIB_CMSIS 
@@ -17,6 +18,7 @@ set(COMPILER_FLAGS
 
 set(CMAKE_ASM_FLAGS			"${COMPILER_FLAGS}" CACHE INTERNAL "")
 set(CMAKE_C_FLAGS			"${COMPILER_FLAGS}" CACHE INTERNAL "")
+set(CMAKE_CXX_FLAGS			"${COMPILER_FLAGS}" CACHE INTERNAL "")
 
 set(MCU_LINKER_FILE "${MCU_DIR}/STM32F407XX_FLASH.ld")
 
