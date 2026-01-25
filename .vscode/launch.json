@@ -1,16 +1,30 @@
 {
 	"configurations": [
 		{
-            "name": "Debug STM32",
+            "name": "Debug STM32F407",
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "openocd",
-            "executable": "${workspaceRoot}/build/stm32-firmware",
-            "device": "STM32F407VG",
+            "executable": "${workspaceFolder}/build/stm32-firmware",
+            "device": "STM32F407xx",
             "gdbPath": "gdb-multiarch",
             "configFiles": [
                 "interface/stlink.cfg",
                 "target/stm32f4x.cfg"
+            ],
+			"preLaunchTask": "build"
+        },
+		{
+            "name": "Debug STM32H723",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "executable": "${workspaceFolder}/build/stm32-firmware",
+            "device": "STM32H723xx",
+            "gdbPath": "gdb-multiarch",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32h7x.cfg"
             ],
 			"preLaunchTask": "build"
         }
