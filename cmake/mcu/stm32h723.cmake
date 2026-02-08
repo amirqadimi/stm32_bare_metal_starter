@@ -3,7 +3,7 @@ set(MCU_DIR "${CMAKE_SOURCE_DIR}/mcu/stm32h7xx")
 target_sources(${PROJECT_NAME} PRIVATE
 	"${MCU_DIR}/startup_stm32h723xx.s"	
 	"${MCU_DIR}/system_stm32h7xx.c"
-	"${CMAKE_SOURCE_DIR}/src/led_h723.c"
+	"${CMAKE_SOURCE_DIR}/src/clock_config_stm32h723.c"
 )
 
 set(MCU_LIB_CMSIS 

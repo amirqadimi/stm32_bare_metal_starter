@@ -29,14 +29,14 @@ message(STATUS "MCU type is \"${MCU_TYPE}\". Compile definition is \"${MCU_COMPI
 
 set(INCLUDES_LIB_CMSIS
 	${MCU_LIB_CMSIS}
-	drivers/CMSIS/Include
+	${CMAKE_SOURCE_DIR}/drivers/CMSIS/Include
 )
 
 add_library(lib INTERFACE)
 
 target_include_directories(lib INTERFACE
 	${INCLUDES_LIB_CMSIS}
-	src
+	${CMAKE_SOURCE_DIR}/include
 )
 
 target_compile_definitions(lib 

@@ -1,0 +1,4 @@
+void SystemClockConfig(void) 
+{
+	// TODO
+}

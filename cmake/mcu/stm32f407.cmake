@@ -3,7 +3,6 @@ set(MCU_DIR "${CMAKE_SOURCE_DIR}/mcu/stm32f4xx")
 target_sources(${PROJECT_NAME} PRIVATE
 	"${MCU_DIR}/startup_stm32f407xx.s"	
 	"${MCU_DIR}/system_stm32f4xx.c"
-	"${CMAKE_SOURCE_DIR}/src/led_f407.c"
 )
 
 set(MCU_LIB_CMSIS 
