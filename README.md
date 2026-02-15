@@ -1,3 +1,8 @@
+# ⚠️ Experimental Project
+
+This project is **experimental** and currently **under development**. Features, structure, and APIs may change at any time.
+
+
 # STM32 Bare Metal Starter
 
 A minimal bare metal starter project designed for **easy multi-MCU development** across different STM32 families. Switch between MCU targets with just a single CMake parameter - no complex configuration needed!
