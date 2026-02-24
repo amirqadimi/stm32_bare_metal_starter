@@ -3,14 +3,17 @@ set(MCU_DIR "${CMAKE_SOURCE_DIR}/mcu/stm32h7xx")
 target_sources(${PROJECT_NAME} PRIVATE
 	"${MCU_DIR}/startup_stm32h723xx.s"	
 	"${MCU_DIR}/system_stm32h7xx.c"
-	"${CMAKE_SOURCE_DIR}/src/led_h723.c"
+	"${CMAKE_SOURCE_DIR}/src/clock_config_stm32h723.c"
 )
 
 set(MCU_LIB_CMSIS 
 	"${CMAKE_SOURCE_DIR}/drivers/CMSIS/Device/ST/STM32H7xx/Include"
 )
 
-set(MCU_COMPILE_DEFINITIONS STM32H723xx)
+set(MCU_COMPILE_DEFINITIONS
+	STM32H723xx
+	USE_PWR_LDO_SUPPLY
+)
 
 set(COMPILER_FLAGS 
 	"-mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections"
