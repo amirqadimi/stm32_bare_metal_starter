@@ -2,13 +2,48 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "build",
+			"label": "configure-h723",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--preset",
+				"debug-h723"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-h723",
 			"type": "shell",
 			"command": "cmake",
 			"args": [
 				"--build",
-				"build"
-			]
+				"--preset",
+				"build-debug-h723"
+			],
+			"dependsOn": "configure-h723",
+			"problemMatcher": []
+		},
+		{
+			"label": "configure-h7b0",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--preset",
+				"debug-h7b0"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "build-h7b0",
+			"type": "shell",
+			"command": "cmake",
+			"args": [
+				"--build",
+				"--preset",
+				"build-debug-h7b0"
+			],
+			"dependsOn": "configure-h7b0",
+			"problemMatcher": []
 		}
 	]
 }

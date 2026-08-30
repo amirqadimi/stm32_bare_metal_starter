@@ -1,8 +1,8 @@
 set(MCU_TYPE "" CACHE STRING "MCU type")
 
-set(MCU_SUPPORTED_TYPES 
-	"stm32f407"
+set(MCU_SUPPORTED_TYPES
 	"stm32h723"
+	"stm32h7b0"
 )
 
 if (NOT MCU_TYPE) 
