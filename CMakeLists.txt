@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28.3)
 
-set(PROJECT_NAME "stm32-firmware")
+set(PROJECT_NAME "firmware")
 
 project(${PROJECT_NAME})
 

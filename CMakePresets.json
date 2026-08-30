@@ -5,39 +5,72 @@
 			"name": "default",
 			"displayName": "Default",
 			"hidden": true,
-			"binaryDir": "${sourceDir}/build",
 			"generator": "Ninja",
 			"toolchainFile": "${sourceDir}/cmake/arm-none-eabi.cmake",
 			"cacheVariables": {
 			}
 		},
 		{
-			"name": "Debug",
-			"displayName": "Debug",
+			"name": "debug-h723",
+			"displayName": "Debug STM32H723",
 			"inherits": "default",
+			"binaryDir": "${sourceDir}/build-h723",
 			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Debug"
+				"CMAKE_BUILD_TYPE": "Debug",
+				"MCU_TYPE": "stm32h723"
 			}
 		},
 		{
-			"name": "Release",
-			"displayName": "Release",
+			"name": "release-h723",
+			"displayName": "Release STM32H723",
 			"inherits": "default",
+			"binaryDir": "${sourceDir}/build-h723",
 			"cacheVariables": {
-				"CMAKE_BUILD_TYPE": "Release"
+				"CMAKE_BUILD_TYPE": "Release",
+				"MCU_TYPE": "stm32h723"
+			}
+		},
+		{
+			"name": "debug-h7b0",
+			"displayName": "Debug STM32H7B0",
+			"inherits": "default",
+			"binaryDir": "${sourceDir}/build-h7b0",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"MCU_TYPE": "stm32h7b0"
+			}
+		},
+		{
+			"name": "release-h7b0",
+			"displayName": "Release STM32H7B0",
+			"inherits": "default",
+			"binaryDir": "${sourceDir}/build-h7b0",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Release",
+				"MCU_TYPE": "stm32h7b0"
 			}
 		}
 	],
 	"buildPresets": [
 		{
-			"name": "Debug",
-			"displayName": "Debug",
-			"configurePreset": "Debug"
+			"name": "build-debug-h723",
+			"displayName": "Build Debug STM32H723",
+			"configurePreset": "debug-h723"
 		},
 		{
-			"name": "Release",
-			"displayName": "Release",
-			"configurePreset": "Release"
+			"name": "build-release-h723",
+			"displayName": "Build Release STM32H723",
+			"configurePreset": "release-h723"
+		},
+		{
+			"name": "build-debug-h7b0",
+			"displayName": "Build Debug STM32H7B0",
+			"configurePreset": "debug-h7b0"
+		},
+		{
+			"name": "build-release-h7b0",
+			"displayName": "Build Release STM32H7B0",
+			"configurePreset": "release-h7b0"
 		}
 	]
 }

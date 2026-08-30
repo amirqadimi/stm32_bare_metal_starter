@@ -1,9 +1,13 @@
 {
-    "configurations": [
-        {
-            "name": "STM32",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
-        }
-    ],
-    "version": 4
+	"configurations": [
+		{
+			"name": "STM32H723",
+			"compileCommands": "${workspaceFolder}/build-h723/compile_commands.json"
+		},
+		{
+			"name": "STM32H7B0",
+			"compileCommands": "${workspaceFolder}/build-h7b0/compile_commands.json"
+		}
+	],
+	"version": 4
 }

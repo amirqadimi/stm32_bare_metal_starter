@@ -3,4 +3,5 @@ Thumbs.db
 *.swp
 *.jdebug.user
 build
+build-*
 CMakeUserPresets.json
