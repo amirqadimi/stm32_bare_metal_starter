@@ -81,7 +81,7 @@ static void spi_disable(void)
 	SPI2->CR1 &= ~SPI_CR1_SPE;
 }
 
-void spi_init(void)
+int spi_init(void)
 {
 	RCC->CR |= RCC_CR_HSIKERON;
 	while ((RCC->CR & RCC_CR_HSIRDY) == 0U)
@@ -126,6 +126,8 @@ void spi_init(void)
 				 SPI_IFCR_MODFC |
 				 SPI_IFCR_TSERFC |
 				 SPI_IFCR_SUSPC;
+
+	return 0;
 }
 
 int spi_transfer(uint8_t *tx_data, uint8_t *rx_data, uint16_t size)
@@ -175,7 +177,12 @@ int spi_transfer(uint8_t *tx_data, uint8_t *rx_data, uint16_t size)
 			return -1;
 		}
 
-		rx_data[index] = *(volatile uint8_t *)&SPI2->RXDR;
+		uint8_t rx_byte = *(volatile uint8_t *)&SPI2->RXDR;
+
+		if (rx_data != 0)
+		{
+			rx_data[index] = rx_byte;
+		}
 	}
 
 	if (wait_for_spi_flag(SPI_SR_EOT) != 0)

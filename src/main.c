@@ -4,7 +4,10 @@
 
 int main(void)
 {
-	init_platform();
+	if (init_platform() != 0)
+	{
+		return -1;
+	}
 
 	for (;;)
 	{

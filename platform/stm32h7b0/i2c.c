@@ -177,7 +177,7 @@ int i2c_write(i2c_config_t *config)
 	if (i2c_transmit(config, 0) != 0)
 	{
 		return -1;
-	};
+	}
 
 	return 0;
 }
@@ -187,7 +187,7 @@ int i2c_read(i2c_config_t *config)
 	if (i2c_transmit(config, 1) != 0)
 	{
 		return -1;
-	};
+	}
 
 	return 0;
 }

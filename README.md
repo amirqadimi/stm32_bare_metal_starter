@@ -78,7 +78,8 @@ cmake --preset debug-h7b0
 cmake --build --preset build-debug-h7b0
 ```
 
-The output ELF is `<build dir>/firmware`.
+The build writes `firmware` (ELF, what the debuggers and the flash commands
+below use) plus `firmware.hex` and `firmware.bin` into the build directory.
 
 The VS Code tasks `configure-h7b0` / `build-h7b0` (and the `h723` pair) run the
 same two commands.

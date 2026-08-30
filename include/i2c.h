@@ -1,5 +1,5 @@
-#ifndef I2CH
-#define I2CH
+#ifndef I2C_H
+#define I2C_H
 
 #include <stdint.h>
 

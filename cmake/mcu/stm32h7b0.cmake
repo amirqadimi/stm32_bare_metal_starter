@@ -22,7 +22,7 @@ set(MCU_COMPILE_DEFINITIONS
 )
 
 set(COMPILER_FLAGS
-	"-mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections -g3 -Og"
+	"-mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -fdata-sections -ffunction-sections -Wall -Wextra -g3 -Og"
 )
 
 set(CMAKE_ASM_FLAGS			"${COMPILER_FLAGS}" CACHE INTERNAL "")

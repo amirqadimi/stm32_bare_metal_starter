@@ -185,12 +185,22 @@ static void led_gpio_init(void)
 	GPIOA->MODER |= GPIO_MODER_MODER3_0;
 }
 
-void init_platform(void)
+int init_platform(void)
 {
 	configure_system_clock();
 	delay_init();
 	led_gpio_init();
 	mco1_init();
-	spi_init();
-	i2c_init();
+
+	if (spi_init() != 0)
+	{
+		return -1;
+	}
+
+	if (i2c_init() != 0)
+	{
+		return -1;
+	}
+
+	return 0;
 }

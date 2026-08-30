@@ -14,6 +14,7 @@
 int i2c_init(void)
 {
 	RCC->AHB4ENR |= RCC_AHB4ENR_GPIOBEN;
+	(void)RCC->AHB4ENR;
 
 	GPIOB->MODER &= ~(GPIO_MODER_MODER10_Msk |
 					  GPIO_MODER_MODER11_Msk);
@@ -176,7 +177,7 @@ int i2c_write(i2c_config_t *config)
 	if (i2c_transmit(config, 0) != 0)
 	{
 		return -1;
-	};
+	}
 
 	return 0;
 }
@@ -186,7 +187,7 @@ int i2c_read(i2c_config_t *config)
 	if (i2c_transmit(config, 1) != 0)
 	{
 		return -1;
-	};
+	}
 
 	return 0;
 }

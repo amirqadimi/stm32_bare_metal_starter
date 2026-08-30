@@ -32,22 +32,24 @@ set(INCLUDES_LIB_CMSIS
 	${CMAKE_SOURCE_DIR}/drivers/CMSIS/Include
 )
 
-add_library(lib INTERFACE)
+add_library(mcu_config INTERFACE)
 
-target_include_directories(lib INTERFACE
+target_include_directories(mcu_config INTERFACE
 	${INCLUDES_LIB_CMSIS}
 	${CMAKE_SOURCE_DIR}/include
 )
 
-target_compile_definitions(lib 
+target_compile_definitions(mcu_config
 	INTERFACE
 	${MCU_COMPILE_DEFINITIONS}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-	lib
+	mcu_config
 )
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 	COMMAND ${CMAKE_SIZE} $<TARGET_FILE:${PROJECT_NAME}>
+	COMMAND ${CMAKE_OBJCOPY} -O ihex $<TARGET_FILE:${PROJECT_NAME}> ${PROJECT_NAME}.hex
+	COMMAND ${CMAKE_OBJCOPY} -O binary $<TARGET_FILE:${PROJECT_NAME}> ${PROJECT_NAME}.bin
 )

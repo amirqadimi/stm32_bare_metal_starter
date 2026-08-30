@@ -41,8 +41,9 @@ static void configure_system_clock(void)
 	RCC->CR |= RCC_CR_HSION;
 	while ((RCC->CR & RCC_CR_HSIRDY) == 0);
 
-	/*	VOS1 and 2 wait states carry 180 MHz. Both must be in place before
-		SYSCLK moves to the PLL.
+	/*	VOS_1 selects voltage scale 2 (the field is 0b10), which carries
+		180 MHz. Scale and wait states must both be in place before SYSCLK
+		moves to the PLL.
 	*/
 	PWR->D3CR &= ~PWR_D3CR_VOS_Msk;
 	PWR->D3CR |= PWR_D3CR_VOS_1;
@@ -134,11 +135,21 @@ static void led_gpio_init(void)
 	GPIOE->MODER |= GPIO_MODER_MODER1_0;
 }
 
-void init_platform(void)
+int init_platform(void)
 {
 	configure_system_clock();
 	delay_init();
 	led_gpio_init();
-	spi_init();
-	i2c_init();
+
+	if (spi_init() != 0)
+	{
+		return -1;
+	}
+
+	if (i2c_init() != 0)
+	{
+		return -1;
+	}
+
+	return 0;
 }
